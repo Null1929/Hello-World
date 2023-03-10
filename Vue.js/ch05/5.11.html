@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue@3.2.36.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>所有库存的商品：</p>
+        <ul>
+            <li v-for="item in nameList">
+                {{item}}
+            </li>
+        </ul>
+        <p>产地为上海的商品：</p>
+        <ul>
+            <li v-for="item in namelists">
+                {{item}}
+            </li>
+        </ul>
+        <p>价格大于或等于5000元的商品：</p>
+        <ul>
+            <li v-for="item in prices()">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    nameList: [
+                        { name: "千叶影儿", price: "5000", city: "上海" },
+                        { name: "凤彩翼", price: "6800", city: "北京" },
+                        { name: "南宫暮云", price: "4600", city: "深圳" },
+                        { name: "陆玄音", price: "4900", city: "上海" },
+                    ],
+                };
+            },
+            computed: {
+                namelists() {
+                    return this.nameList.filter( //filter（）函数用于进行数组的过滤，参数为一个函数，函数的参数为目标数组，函数直接返回对目标函数的返回规则
+                        function (nameList) {
+                            return nameList.city === "上海";
+                        }
+                    );
+                },
+            },
+            methods: {
+                prices() {
+                    return this.nameList.filter(
+                        function (nameList) {
+                            return nameList.price < 5000;
+                        }
+                    );
+                },
+            },
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

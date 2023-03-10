@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue@3.2.36.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    msg: "白日照绿草，落花散且飞。",
+                }
+            },
+            beforeCreate() {
+                console.log("beforeCreate");
+            },
+            created() {
+                console.log('created');
+            },
+            beforeMount() {
+                console.log("beforeMount");
+            },
+            mounted() {
+                console.log("mounted");
+            },
+            beforeUpdate() {
+                console.log("beforeUpdate");
+            },
+            updated() {
+                console.log("updated");
+            },
+        }).mount("#app");
+
+        setTimeout(function () {
+            vm.msg = "孤云还空山，众鸟各已归。";
+        }, 4000); 
+
+    </script>
+</body>
+
+</html>

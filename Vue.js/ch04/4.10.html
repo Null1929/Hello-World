@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue@3.2.36.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p><a v-bind:[attr]="url">斗鱼</a></p>
+        <p><button v-on:[things]="doSomething">单击事件</button></p>
+    </div>
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    attr: "href",
+                    things: "click",
+                    url: "https://www.douyu.com",
+
+                };
+            },
+            methods: {
+                doSomething() {
+                    alert("触发了单击事件！");
+                },
+            },
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

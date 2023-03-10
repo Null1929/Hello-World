@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue@3.2.36.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{content}}
+        {{way2()}}
+    </div>
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    content: "阳里",
+                }
+            },
+            methods: {
+                way1() {
+                    alert("东风扇淑气，水木荣春晖。");
+                },
+                way2() {
+                    this.$options.methods.way1();
+                    //调用其他方法： this.$options.methods.方法名
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

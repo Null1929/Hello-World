@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            名称：<input type="text" v-model="names">
+        </div>
+        <div>
+            产地：<input type="text" v-model="citys">
+        </div>
+        <div>
+            价格：<input type="text" v-model="prices">
+            <button v-on:click="add()">添加</button>
+        </div>
+        <hr>
+        <p v-for="item in nameList" v-bind:key="item.name">
+            <input type="checkbox">
+            <span>
+                名称：{{item.name}}——产地：{{item.city}}——价格：{{item.price}}
+            </span>
+        </p>
+    </div>
+    <script>
+        const vm = Vue.createApp({
+            data(){
+                return{
+                    name:"",
+                    citys:"",
+                    prices:"",
+                    nameList:[
+                        {
+                            name:"南宫暮云",city:"北京",prices:"999元"
+                        },
+                        {
+                            name:"千叶影儿",city:"上海",prices:"9999元"
+                        },
+                        {
+                            name:"陆玄音",city:"深圳",prices:"1200元"
+                        },
+                        {
+                            name:"骆冰",city:"成都",prices:"100元"
+                        },
+                    ],
+                }
+            },
+            methods: {
+                add(){
+                    this.nameList.unshift(
+                        {
+                            name:this.names,
+                            city:this.citys,
+                            price:this.citys,
+                        }
+                    )
+                }
+            },
+        }).mount("#app");
+    </script>
+</body>
+</html>

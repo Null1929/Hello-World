@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue@3.2.36.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        输入内容：<input type="text" v-model="message"><br />
+        反转内容：{{reversedMessage()}}
+    </div>
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    message: '',
+                }
+            },
+            methods: {
+                reversedMessage() {
+                    return this.message.split('').reverse().join('');
+                    //split函数用于按指定格式将字符串转换成数组
+                    //reverse函数用于将数组反转顺序，返回值是一个数组
+                    //join函数用于按指定格式将数组转换成字符串
+                }
+            },
+        }).mount("#app");
+    </script>
+</body>
+
+</html>
