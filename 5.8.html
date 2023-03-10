@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <template v-for="(item,key,index) in nameObj">
+                <li>{{index}}--{{key}}:{{item}}</li>
+            </template>
+        </ul>
+    </div>
+    <script>
+        const vm = Vue.createApp({
+            data(){
+                return{
+                    nameObj:{
+                        name:"南宫暮云",
+                        age:30,
+                        skills:"69,sm,kiss,zc,kb,gj,tj,yn",
+                        city:"上海",
+                        price:999,
+                    }
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>
